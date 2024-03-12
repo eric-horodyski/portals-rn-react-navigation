@@ -1,27 +1,35 @@
-# Null 
+# Portals for React Native: Portal-to-Portal Navigation 
 
-## 1. Build Web App
+This demo demonstrates how to use Portal's pub/sub mechanism to drive React Native navigation (using [React Navigation](https://reactnavigation.org/)). 
 
-Run the following in `/web`:
+## How to Run
+
+- Create a `.env` file in the `/packages/app` folder and add an entry for `PORTALS_KEY` like so:
+
+```
+PORTALS_KEY=Your Portals Key
+```
+
+- Run the following commands in the `/packages/app` directory:
 
 ```bash
 npm install
-npm run build
-```
-
-## 2. Run the App
-
-* Supply a key in `App.tsx LN28`
-* Run React Native Metro:
-
-```bash
-cd ./app
 npm start
 ```
 
-* Run the Android project
+- In a new terminal, run the following in the `/packages/app/ios` directory:
 
-### 3. Test
+```bash
+pod install
+xed PortalsDemo.xcworkspace
+```
 
-1. Click the button
-2. Debug
+- Run the application within a simulator or on device
+
+## How to Navigate
+
+Press the "Click me!" button within the web app presented within the Portal. 
+
+The Home screen push the Details screen onto the navigation stack, and Details screen will push the Home screen onto the start. Continue using the button to create a stack, and use the back button to pop from the stack. 
+
+Note that the appropriate numbers of Portals exist depending on how many screens are on the stack.
